@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SaranaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,22 @@ use App\Http\Controllers\NewsController;
 |
 */
 
+//Halaman Home
 Route::get('home', [HomeController::class, 'home']);
 
-//Route Prefix
+//Route Prefix Prodi
 Route::prefix('prodi')->group(function(){
     Route::get('/manajemen-informatika', [ProdiController::class, 'MI']);
     Route::get('/teknik-informatika',[ProdiController::class, 'TI']);
 });
 
-//Route Parameter
+//Route Parameter News
 Route::get('news/{id}', [NewsController::class, 'news']);
+
+//Route Prefix Sarana
+Route::prefix('sarana')->group(function(){
+    Route::get('/perkantoran', [SaranaController::class, 'kantor']);
+    Route::get('/laboratorium',[SaranaController::class, 'laboratorium']);
+    Route::get('/kelas', [SaranaController::class, 'kelas']);
+    Route::get('/lainnya',[SaranaController::class, 'lainnya']);
+});
