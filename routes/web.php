@@ -40,3 +40,9 @@ Route::prefix('sarana')->group(function(){
 
 //Route halaman about-us
 Route::get('about-us', [AboutController::class, 'tentang']);
+
+//Route Parameter Halaman Comment
+Route::get('/user/{nama}/comment/{pesan}',
+function($nama,$pesan){
+    return 'user '.$nama.' memberi komentar '.$pesan;
+});
