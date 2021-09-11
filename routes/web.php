@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('home', [HomeController::class, 'home']);
+Route::prefix('prodi')->group(function(){
+    Route::get('/manajemen-informatika', [ProdiController::class, 'MI']);
+    Route::get('/teknik-informatika',[ProdiController::class, 'TI']);
+});
