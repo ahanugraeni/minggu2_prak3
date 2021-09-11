@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SaranaController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\SaranaController;
 |
 */
 
-//Halaman Home
+//Route Halaman Home
 Route::get('home', [HomeController::class, 'home']);
 
 //Route Prefix Prodi
@@ -36,3 +37,6 @@ Route::prefix('sarana')->group(function(){
     Route::get('/kelas', [SaranaController::class, 'kelas']);
     Route::get('/lainnya',[SaranaController::class, 'lainnya']);
 });
+
+//Route halaman about-us
+Route::get('about-us', [AboutController::class, 'tentang']);
