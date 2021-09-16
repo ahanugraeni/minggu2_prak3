@@ -20,6 +20,9 @@ use App\Http\Controllers\AboutController;
 
 //Route Halaman Home
 Route::get('home', [HomeController::class, 'home']);
+Route::get('home', function(){
+    return view ('home', ['pesan' => "Selamat Datang di halaman home"]);
+    });   
 
 //Route Prefix Prodi
 Route::prefix('prodi')->group(function(){
