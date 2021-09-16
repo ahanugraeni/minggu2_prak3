@@ -20,6 +20,8 @@ use App\Http\Controllers\AboutController;
 
 //Route Halaman Home
 Route::get('home', [HomeController::class, 'home']);
+
+//Membuat view halaman hom
 Route::get('home', function(){
     return view ('home', ['pesan' => "Selamat Datang di halaman home"]);
     });   
@@ -28,6 +30,16 @@ Route::get('home', function(){
 Route::prefix('prodi')->group(function(){
     Route::get('/manajemen-informatika', [ProdiController::class, 'MI']);
     Route::get('/teknik-informatika',[ProdiController::class, 'TI']);
+});
+
+//membuat view halaman prodi MI
+Route::get('prodiMI', function(){
+    return view ('prodiMI', ['pesan' => "Halaman Untuk Prodi Manajemen Informatika"]);
+});
+
+//membuat view halaman prodi MI
+Route::get('prodiMI', function(){
+    return view ('prodiMI', ['pesan' => "Halaman Untuk Prodi Manajemen Informatika"]);
 });
 
 //Route Parameter News
