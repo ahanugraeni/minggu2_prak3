@@ -32,14 +32,14 @@ Route::prefix('prodi')->group(function(){
     Route::get('/teknik-informatika',[ProdiController::class, 'TI']);
 });
 
-//membuat view halaman prodi MI
+//membuat route view halaman prodi MI
 Route::get('prodiMI', function(){
     return view ('prodiMI', ['pesan' => "Halaman Untuk Prodi Manajemen Informatika"]);
 });
 
-//membuat view halaman prodi MI
-Route::get('prodiMI', function(){
-    return view ('prodiMI', ['pesan' => "Halaman Untuk Prodi Manajemen Informatika"]);
+//membuat rout untuk view halaman prodi TI
+Route::get('prodiTI', function(){
+    return view ('prodiTI', ['pesan' => "Halaman Untuk Prodi Teknik Informatika"]);
 });
 
 //Route Parameter News
