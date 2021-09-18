@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SaranaController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,27 +20,12 @@ use App\Http\Controllers\AboutController;
 */
 
 //Route Halaman Home
-Route::get('home', [HomeController::class, 'home']);
-
-//Membuat view halaman hom
-Route::get('home', function(){
-    return view ('home', ['pesan' => "Selamat Datang di halaman home"]);
-    });   
+Route::get('home', [HomeController::class, 'home']);  
 
 //Route Prefix Prodi
 Route::prefix('prodi')->group(function(){
-    Route::get('/manajemen-informatika', [ProdiController::class, 'MI']);
-    Route::get('/teknik-informatika',[ProdiController::class, 'TI']);
-});
-
-//membuat route view halaman prodi MI
-Route::get('prodiMI', function(){
-    return view ('prodiMI', ['pesan' => "Halaman Untuk Prodi Manajemen Informatika"]);
-});
-
-//membuat rout untuk view halaman prodi TI
-Route::get('prodiTI', function(){
-    return view ('prodiTI', ['pesan' => "Halaman Untuk Prodi Teknik Informatika"]);
+    Route::get('/manajemen-informatika', [ProdiController::class, 'mi']);
+    Route::get('/teknik-informatika',[ProdiController::class, 'ti']);
 });
 
 //Route Parameter News
@@ -47,17 +33,14 @@ Route::get('news/{id}', [NewsController::class, 'news']);
 
 //Route Prefix Sarana
 Route::prefix('sarana')->group(function(){
-    Route::get('/perkantoran', [SaranaController::class, 'kantor']);
+    Route::get('/perkantoran', [SaranaController::class, 'perkantoran']);
     Route::get('/laboratorium',[SaranaController::class, 'laboratorium']);
     Route::get('/kelas', [SaranaController::class, 'kelas']);
     Route::get('/lainnya',[SaranaController::class, 'lainnya']);
 });
 
 //Route halaman about-us
-Route::get('about-us', [AboutController::class, 'tentang']);
+Route::get('about-us', [AboutController::class, 'about']);
 
 //Route Parameter Halaman Comment
-Route::get('/user/{nama}/comment/{pesan}',
-function($nama,$pesan){
-    return 'user '.$nama.' memberi komentar '.$pesan;
-});
+Route::get('/comment/{nama}/{pesan}', [CommentController::class, 'index']);

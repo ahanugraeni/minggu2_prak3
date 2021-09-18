@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    public function tentang(){
-        return "Ini adalah halaman about us";
+    public function about() {
+        return view('about' ,['pesan' => "Ini adalah halaman About Us"]);
     }
 }
